@@ -12,6 +12,7 @@ guess = input("Enter a guess:")
 blanks = len(chosen_word)
 word = []
 x = 0
+j = 0
 for i in range(blanks):
   word.append("_")
 blanks += 5
@@ -28,12 +29,15 @@ while blanks > 0:
   blanks -= 1
   for y in word:
     if y == "_":
-      j = 1
+      j += 1
     else:
       j = 0
-      continue
-print(word)      
-if j == 1:
+  if j == 0:
+    blanks = 0
+  else:
+    continue  
+print(word)
+if j > 0:
   print("YOU LOSE!")
 else:
   print("YOU WIN!")
